@@ -4,12 +4,16 @@ const typeSelect = document.querySelector('#type');
 const totalPriceElement = document.querySelector('#totalPrice');
 let total = 0;
 
+
+
 const pancakePriceCalc = () => {
     total = parseInt(typeSelect.value) || 0;
 
     checkToppings();
+    //checks what topping are selected
 
     totalPriceElement.textContent = `${total.toFixed(0)}€`;
+    //changing the price
 
     const priceBanner = document.querySelector('.price-banner');
     priceBanner.animate(
@@ -23,6 +27,8 @@ const pancakePriceCalc = () => {
             iterations: 1,
         }
     );
+
+    //animation
 };
 
 const checkToppings = () => {
@@ -35,5 +41,7 @@ const checkToppings = () => {
 };
 
 form.addEventListener('change', pancakePriceCalc);
+
+//listener to the whole form
 
 pancakePriceCalc();
