@@ -1,7 +1,7 @@
 const form = document.querySelector('.form-container');
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const typeSelect = document.querySelector('#type');
-const deliveryOptions = document.querySelectorAll('input[name="delivery"]'); // Delivery radio buttons
+const deliveryOptions = document.querySelectorAll('input[name="delivery"]'); // Delivery radio buttons neat option for selected the righ input
 const totalPriceElement = document.querySelector('#totalPrice');
 const button = document.querySelector('button');
 
@@ -41,6 +41,7 @@ const pancakePriceCalc = () => {
         }
     );
 };
+// checks what type of pankace is selected, which topping and extras, outputs it to price and animates the banner
 
 const checkToppings = () => {
     checkboxes.forEach(item => {
@@ -56,6 +57,7 @@ const checkToppings = () => {
         }
     });
 };
+//checks which topping are selected, modifies price and stores them in respective arrays
 
 const checkDeliveryOptions = () => {
     selectedDelivery = [...deliveryOptions].find(option => option.checked)?.value || 'eat_in';
@@ -63,6 +65,7 @@ const checkDeliveryOptions = () => {
         total += 5;
     }
 };
+// very complicated way to figure out what kind of delivery is selected (?)
 
 const displayOrder = () => {
     const customerName = document.querySelector('#customerName').value || 'Guest';
@@ -94,6 +97,7 @@ const displayOrder = () => {
     orders.push(order);
     console.log('Orders:', orders);
 };
+// creates order object based on inputed data and puses it to the array
 
 form.addEventListener('change', pancakePriceCalc);
 
